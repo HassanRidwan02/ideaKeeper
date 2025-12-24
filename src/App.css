@@ -1,0 +1,99 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  font-family: "Hanken Grotesk", sans-serif;
+
+}
+
+html {
+  font-size: 16px;
+}
+
+
+main {
+  margin: auto;
+}
+
+
+
+.navbar-logo{
+  color: #4f46e5;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+.navbar-container {
+  width: 100vw;
+  padding: 2em 6em;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+
+.navbar-links ul {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links ul li {
+  list-style: none;
+}
+
+
+ a {
+  text-decoration: none;
+  color: #444;
+}
+
+a.active {
+  padding: 10px;
+  border-radius: 5px;
+  transition: .6s ease-in-out;
+  color: #fff;
+  background: #4f46e5;
+  font-weight: 600;
+  border-bottom: 2px solid #4f46e5;
+}
+
+button {
+  font-weight: 600;
+  background-color: #4f46e5;
+  padding: 10px 25px;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+.home {
+  width: 80%;
+  margin: auto;
+  padding: 60px 0;
+}
+
+.home .hero {
+  text-align: center;
+}
+
+.home .hero h1 {
+  font-size: 3.5rem;
+}
+
+.home .hero p {
+  font-size: 1.3rem;
+  width: 60%;
+  margin: 10px auto;
+  line-height: 35px;
+}
+
+.home .hero p span {
+  color: #4f46e5;
+}
