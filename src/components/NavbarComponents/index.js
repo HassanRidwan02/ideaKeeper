@@ -1,4 +1,4 @@
-import Navbar from '.'
+import Navbar from './NavbarComponents/Nav'
 import NavbarLogo from './NavbarLogo'
 import NavbarAbout from './NavbarAbout'
 import NavbarCTA from './NavbarCTA'
