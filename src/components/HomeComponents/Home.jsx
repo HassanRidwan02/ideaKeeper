@@ -1,4 +1,4 @@
-import Button from './Reusables/Button'
+import Button from '../Reusables/Button'
 
 export default function Home() {
   return (
