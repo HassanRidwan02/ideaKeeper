@@ -4,7 +4,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import Navbar from './components/index'
+import Navbar from './components/Navbar/index'
 import Home from './components/Home'
 import Button from './components/Button'
 import About from './components/About'
@@ -16,7 +16,7 @@ function App() {
       <nav>
         <Navbar>
           <Navbar.Logo>
-            <Link to='/home'>
+            <Link to='/'>
               IdeaKeeper
             </Link>
           </Navbar.Logo>
@@ -38,12 +38,9 @@ function App() {
         </Navbar>
       </nav>
 
-      <main>
-        <Home />
-      </main>
 
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

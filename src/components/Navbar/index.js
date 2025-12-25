@@ -1,4 +1,4 @@
-import Navbar from './Navbar'
+import Navbar from '.'
 import NavbarLogo from './NavbarLogo'
 import NavbarAbout from './NavbarAbout'
 import NavbarCTA from './NavbarCTA'
