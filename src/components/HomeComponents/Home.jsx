@@ -1,6 +1,9 @@
+import {useNavigate} from 'react-router-dom'
 import Button from '../Reusables/Button'
 
 export default function Home() {
+
+  const navigate = useNavigate()
   return (
     <div className="home">
       <section className="hero">
@@ -9,7 +12,7 @@ export default function Home() {
           Never lose a thought again. IdeaKeeper helps you organize, develop, 
           and bring your ideas to life <span> (all in one place). </span>
         </p>
-        <Button>Start Keeping Ideas</Button>
+        <Button onClick={()=> navigate('/ideas')}>Start Keeping Ideas</Button>
       </section>
 
       <section className="features">
@@ -37,7 +40,7 @@ export default function Home() {
       <section className="cta-section">
         <h2>Ready to Keep Your Best Ideas?</h2>
         <p>Join thousands of creators, entrepreneurs, and thinkers</p>
-        <Button>Get Started Free</Button>
+        <Button onClick={()=> navigate('/ideas')}>Get Started Free</Button>
       </section>
     </div>
   );
