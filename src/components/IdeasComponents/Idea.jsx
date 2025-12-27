@@ -1,17 +1,77 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { auth, db } from "../../firebase/firebaseConfig";
+import { collection, addDoc, query, where, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const Ideas = () => {
+  const navigate = useNavigate();
   const [ideas, setIdeas] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [loading, setLoading] = useState(true);
 
-  const handleAddIdea = (e) => {
+  // Load ideas from Firebase on component mount
+  useEffect(() => {
+    const loadIdeas = async () => {
+      try {
+        const user = auth.currentUser;
+        if (!user) {
+          navigate("/signin");
+          return;
+        }
+
+        const q = query(collection(db, "ideas"), where("userId", "==", user.uid));
+        const querySnapshot = await getDocs(q);
+        const loadedIdeas = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setIdeas(loadedIdeas);
+      } catch (error) {
+        console.error("Error loading ideas:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadIdeas();
+  }, [navigate]);
+
+  const handleAddIdea = async (e) => {
     e.preventDefault();
     if (!title || !description) return;
 
-    setIdeas([{ title, description }, ...ideas]);
-    setTitle("");
-    setDescription("");
+    try {
+      const user = auth.currentUser;
+      if (!user) {
+        alert("You must be logged in to add ideas");
+        return;
+      }
+
+      const docRef = await addDoc(collection(db, "ideas"), {
+        title,
+        description,
+        userId: user.uid,
+        createdAt: new Date(),
+      });
+
+      setIdeas([{ id: docRef.id, title, description, userId: user.uid, createdAt: new Date() }, ...ideas]);
+      setTitle("");
+      setDescription("");
+    } catch (error) {
+      console.error("Error adding idea:", error);
+      alert("Failed to save idea. Please try again.");
+    }
+  };
+
+  const handleDeleteIdea = async (ideaId) => {
+    try {
+      await deleteDoc(doc(db, "ideas", ideaId));
+      setIdeas(ideas.filter((idea) => idea.id !== ideaId));
+    } catch (error) {
+      console.error("Error deleting idea:", error);
+      alert("Failed to delete idea. Please try again.");
+    }
   };
 
   return (
@@ -45,17 +105,27 @@ const Ideas = () => {
       {/* RIGHT COLUMN: Ideas List */}
       <main className="lg:col-span-3 bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Ideas</h2>
-        {ideas.length === 0 ? (
+        {loading ? (
+          <p className="text-gray-500 text-lg">Loading your ideas...</p>
+        ) : ideas.length === 0 ? (
           <p className="text-gray-500 text-lg">No ideas yet. Add one!</p>
         ) : (
           <ul className="space-y-4">
-            {ideas.map((idea, index) => (
+            {ideas.map((idea) => (
               <li 
-                key={index} 
-                className="p-4 border border-gray-200 rounded-lg bg-gray-50 hover:shadow-md hover:translate-y-0.5 transition-all duration-150"
+                key={idea.id} 
+                className="p-4 border border-gray-200 rounded-lg bg-gray-50 hover:shadow-md hover:translate-y-0.5 transition-all duration-150 flex justify-between items-start"
               >
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{idea.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{idea.description}</p>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{idea.title}</h3>
+                  <p className="text-gray-700 leading-relaxed">{idea.description}</p>
+                </div>
+                <button
+                  onClick={() => handleDeleteIdea(idea.id)}
+                  className="ml-4 px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600 transition-colors"
+                >
+                  Delete
+                </button>
               </li>
             ))}
           </ul>
