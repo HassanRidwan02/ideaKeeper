@@ -75,7 +75,7 @@ const Ideas = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 p-4 sm:p-6 min-h-screen bg-gray-50">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-4 sm:p-6 min-h-screen bg-gray-50">
       {/* LEFT COLUMN: Form */}
       <aside className="lg:col-span-1 bg-white p-6 rounded-lg shadow-md h-fit sticky top-20">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Add New Idea</h2>
@@ -103,7 +103,7 @@ const Ideas = () => {
       </aside>
 
       {/* RIGHT COLUMN: Ideas List */}
-      <main className="lg:col-span-3 bg-white p-6 rounded-lg shadow-md flex flex-col">
+      <main className="lg:col-span-1 bg-white p-6 rounded-lg shadow-md flex flex-col">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Ideas</h2>
         <div className="flex-1 overflow-y-auto border border-gray-200 rounded-lg p-4 bg-gray-50">
           {loading ? (
