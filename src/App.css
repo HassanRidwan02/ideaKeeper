@@ -244,3 +244,185 @@ button:hover{
   cursor: pointer;
   font-size: 1rem;
 }
+
+/* Center the form on the page */
+form {
+  max-width: 420px;
+  margin: 80px auto;
+  padding: 2.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Title */
+form h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Inputs */
+form input {
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input::placeholder {
+  color: #aaa;
+}
+
+/* Input focus */
+form input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* Button */
+form button {
+  margin-top: 0.8rem;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #4f46e5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+/* Button hover & active */
+form button:hover {
+  background: #4338ca;
+}
+
+form button:active {
+  transform: scale(0.98);
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  form {
+    margin: 40px 1rem;
+    padding: 2rem;
+  }
+}
+
+
+/* Idea page */
+.ideas-page {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  height: calc(100vh - 70px);
+  font-family: system-ui, sans-serif;
+  background: #f5f7fb;
+}
+
+/* LEFT: Form */
+.ideas-form {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.ideas-form h2 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.ideas-form input,
+.ideas-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 1rem;
+  resize: none;
+}
+
+.ideas-form input:focus,
+.ideas-form textarea:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.15);
+}
+
+.ideas-form button {
+  padding: 0.8rem;
+  background: #4f46e5;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.ideas-form button:hover {
+  background: #4338ca;
+}
+
+/* RIGHT: Ideas List */
+.ideas-list {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  overflow-y: auto;
+}
+
+.ideas-list h2 {
+  margin-bottom: 1rem;
+}
+
+.ideas-list p {
+  color: #555;
+}
+
+.idea-card {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 1rem;
+  background: #fefefe;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.idea-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.idea-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .ideas-page {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .ideas-form, .ideas-list {
+    margin-bottom: 1rem;
+  }
+}

@@ -1,5 +1,5 @@
 export default function NavbarLogo({children}){
     return (
-        <p className='navbar-logo'>{children}</p>
+        <p className='text-indigo-600 text-2xl font-bold'>{children}</p>
     )
 }
