@@ -18,7 +18,12 @@ main {
   margin: auto;
 }
 
-
+ul{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 20px;
+}
 
 .navbar-logo{
   color: #4f46e5;

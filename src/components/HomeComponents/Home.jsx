@@ -29,19 +29,19 @@ export default function Home() {
       <section className="mb-20">
         <h2 className="text-3xl sm:text-4xl font-bold text-indigo-600 text-center mb-12">Why IdeaKeeper?</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl mx-auto">
-          <div className="bg-indigo-100 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div className=" p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-xl font-bold text-gray-900 mb-3">Quick Capture</h3>
             <p className="text-gray-700">Jot down ideas instantly before they slip away</p>
           </div>
-          <div className="bg-indigo-100 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div className=" p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-xl font-bold text-gray-900 mb-3">Smart Organization</h3>
             <p className="text-gray-700">Tag, categorize, and find your ideas effortlessly</p>
           </div>
-          <div className="bg-indigo-100 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div className=" p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-xl font-bold text-gray-900 mb-3">Develop & Refine</h3>
             <p className="text-gray-700">Turn rough thoughts into actionable plans</p>
           </div>
-          <div className="bg-indigo-100 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div className=" p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-xl font-bold text-gray-900 mb-3">Sync Everywhere</h3>
             <p className="text-gray-700">Access your ideas across all your devices</p>
           </div>
