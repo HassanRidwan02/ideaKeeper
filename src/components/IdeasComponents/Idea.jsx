@@ -103,33 +103,35 @@ const Ideas = () => {
       </aside>
 
       {/* RIGHT COLUMN: Ideas List */}
-      <main className="lg:col-span-3 bg-white p-6 rounded-lg shadow-md">
+      <main className="lg:col-span-3 bg-white p-6 rounded-lg shadow-md flex flex-col">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Ideas</h2>
-        {loading ? (
-          <p className="text-gray-500 text-lg">Loading your ideas...</p>
-        ) : ideas.length === 0 ? (
-          <p className="text-gray-500 text-lg">No ideas yet. Add one!</p>
-        ) : (
-          <ul className="space-y-4">
-            {ideas.map((idea) => (
-              <li 
-                key={idea.id} 
-                className="p-4 border border-gray-200 rounded-lg bg-gray-50 hover:shadow-md hover:translate-y-0.5 transition-all duration-150 flex justify-between items-start"
-              >
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{idea.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{idea.description}</p>
-                </div>
-                <button
-                  onClick={() => handleDeleteIdea(idea.id)}
-                  className="ml-4 px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600 transition-colors"
+        <div className="flex-1 overflow-y-auto border border-gray-200 rounded-lg p-4 bg-gray-50">
+          {loading ? (
+            <p className="text-gray-500 text-lg">Loading your ideas...</p>
+          ) : ideas.length === 0 ? (
+            <p className="text-gray-500 text-lg">No ideas yet. Add one!</p>
+          ) : (
+            <ul className="space-y-4">
+              {ideas.map((idea) => (
+                <li 
+                  key={idea.id} 
+                  className="p-4 border border-gray-200 rounded-lg bg-white hover:shadow-md hover:translate-y-0.5 transition-all duration-150 flex justify-between items-start"
                 >
-                  Delete
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">{idea.title}</h3>
+                    <p className="text-gray-700 leading-relaxed">{idea.description}</p>
+                  </div>
+                  <button
+                    onClick={() => handleDeleteIdea(idea.id)}
+                    className="ml-4 px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600 transition-colors"
+                  >
+                    Delete
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </main>
     </div>
   );
